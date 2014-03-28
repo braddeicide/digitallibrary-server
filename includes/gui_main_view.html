@@ -1,0 +1,226 @@
+              <td height="352"><form name="form1" method="post" action="view.php">
+                  <?php print $_SESSION['deleteFeedback']; $_SESSION['deleteFeedback']= "";?>
+                            <div align="center">
+                              <table width="1041" height="176" border="0" align="center" cellpadding="0" cellspacing="0">
+
+                          <tr>
+                            <td width="132" height="22"><input name="checkAuthor" type="checkbox" id="checkAuthor" value="checkbox" <?php if (!empty($_SESSION['checkAuthor'])) print "checked='true'"; ?>>
+                    Author</td>
+                            <td width="42">&nbsp;</td>
+                            <td width="68"> Contains </td>
+                            <td width="213"><input name="textContainsAuthor" type="text" id="textContainsAuthor" value="<?php print $_SESSION['textContainsAuthor']?>" onChange="form1.checkAuthor.checked=true;"></td>
+                            <td width="46">&nbsp;</td>
+
+                            <td width="75"> Starts with </td>
+                            <td width="184"><input name="textStartsAuthor" type="text" id="textStartsAuthor" value="<?php print $_SESSION['textStartsAuthor']?>" onChange="form1.checkAuthor.checked=true;"></td>
+                            <td width="29">&nbsp;</td>
+                            <td width="67"> Ends with </td>
+                            <td width="185"><input name="textEndsAuthor" type="text" name="textfield" value="<?php print $_SESSION['textEndsAuthor']?>" onChange="form1.checkAuthor.checked=true;"></td>
+                          </tr>
+                          <tr>
+
+                            <td height="22"><input name="checkRelated" type="checkbox" id="checkRelated" value="checkbox" <?php if (!empty($_SESSION['checkRelated'])) print "checked='true'"; ?>>
+    Related author </td>
+                            <td>&nbsp;</td>
+                            <td> Contains </td>
+                            <td><input name="textContainsRelated" type="text" id="textContainsRelated" value="<?php print $_SESSION['textContainsRelated']?>" onChange="form1.checkRelated.checked=true;"></td>
+                            <td>&nbsp;</td>
+                            <td> Starts with </td>
+
+                            <td><input name="textStartsRelated" type="text" id="textStartsRelated" value="<?php print $_SESSION['textStartsRelated']?>" onChange="form1.checkRelated.checked=true;"></td>
+                            <td>&nbsp;</td>
+                            <td> Ends with </td>
+                            <td><input name="textEndsRelated" type="text" name="textfield" value="<?php print $_SESSION['textEndsRelated']?>" onChange="form1.checkRelated.checked=true;"></td>
+                          </tr>
+                          <tr>
+                            <td height="22"><input name="checkTitle" type="checkbox" id="checkTitle" value="checkbox" <?php if (!empty($_SESSION['checkTitle'])) print "checked='true'"; ?>>
+                    Title</td>
+
+                            <td>&nbsp;</td>
+                            <td> Contains </td>
+                            <td><input name="textContainsTitle" type="text" id="textContainsTitle" value="<?php print $_SESSION['textContainsTitle']?>" onChange="form1.checkTitle.checked=true;"></td>
+                            <td>&nbsp;</td>
+                            <td> Starts with </td>
+                            <td><input name="textStartsTitle" type="text" id="textStartsTitle" value="<?php print $_SESSION['textStartsTitle']?>" onChange="form1.checkTitle.checked=true;"></td>
+                            <td>&nbsp;</td>
+
+                            <td> Ends with </td>
+                            <td><input name="textEndsTitle" type="text" name="textfield" value="<?php print $_SESSION['textEndsTitle']?>" onChange="form1.checkTitle.checked=true;"></td>
+                          </tr>
+                          <tr>
+                            <td height="24"><input name="checkDate" type="checkbox" id="checkDate" value="checkbox" <?php if (!empty($_SESSION['checkDate'])) print "checked='true'"; ?>>
+                    
+Year</td>
+                            <td>&nbsp;</td>
+
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>Starting</td>
+                            <td><select name="selectStartsDate" id="selectStartsDate" onChange="form1.checkDate.checked=true;">
+
+							  <option <?php if (empty($_SESSION['selectStartsDate']))  print 'selected'; ?>>any</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1980) print 'selected'; ?>>1980</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1981) print 'selected'; ?>>1981</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1982) print 'selected'; ?>>1982</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1983) print 'selected'; ?>>1983</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1984) print 'selected'; ?>>1984</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1985) print 'selected'; ?>>1985</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1986) print 'selected'; ?>>1986</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1987) print 'selected'; ?>>1987</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1988) print 'selected'; ?>>1988</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1989) print 'selected'; ?>>1989</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1990) print 'selected'; ?>>1990</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1991) print 'selected'; ?>>1991</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1992) print 'selected'; ?>>1992</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1993) print 'selected'; ?>>1993</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1994) print 'selected'; ?>>1994</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1995) print 'selected'; ?>>1995</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1996) print 'selected'; ?>>1996</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1997) print 'selected'; ?>>1997</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1998) print 'selected'; ?>>1998</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 1999) print 'selected'; ?>>1999</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2000) print 'selected'; ?>>2000</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2001) print 'selected'; ?>>2001</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2002) print 'selected'; ?>>2002</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2003) print 'selected'; ?>>2003</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2004) print 'selected'; ?>>2004</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2005) print 'selected'; ?>>2005</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2006) print 'selected'; ?>>2006</option>
+                              <option <?php if ($_SESSION['selectStartsDate'] == 2007) print 'selected'; ?>>2007</option>
+                            </select></td>
+                            <td>&nbsp;</td>
+                            <td>Ending</td>
+                            <td><select name="selectEndsDate" id="selectEndsDate" onChange="form1.checkDate.checked=true;">
+                              <option selected>any</option>
+							  <option <?php if (empty($_SESSION['selectEndsDate']))  print 'selected'; ?>>any</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1980) print 'selected'; ?>>1980</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1981) print 'selected'; ?>>1981</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1982) print 'selected'; ?>>1982</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1983) print 'selected'; ?>>1983</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1984) print 'selected'; ?>>1984</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1985) print 'selected'; ?>>1985</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1986) print 'selected'; ?>>1986</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1987) print 'selected'; ?>>1987</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1988) print 'selected'; ?>>1988</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1989) print 'selected'; ?>>1989</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1990) print 'selected'; ?>>1990</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1991) print 'selected'; ?>>1991</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1992) print 'selected'; ?>>1992</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1993) print 'selected'; ?>>1993</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1994) print 'selected'; ?>>1994</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1995) print 'selected'; ?>>1995</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1996) print 'selected'; ?>>1996</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1997) print 'selected'; ?>>1997</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1998) print 'selected'; ?>>1998</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 1999) print 'selected'; ?>>1999</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2000) print 'selected'; ?>>2000</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2001) print 'selected'; ?>>2001</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2002) print 'selected'; ?>>2002</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2003) print 'selected'; ?>>2003</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2004) print 'selected'; ?>>2004</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2005) print 'selected'; ?>>2005</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2006) print 'selected'; ?>>2006</option>
+                              <option <?php if ($_SESSION['selectEndsDate'] == 2007) print 'selected'; ?>>2007</option>
+                            </select></td>
+                          </tr>
+                          <tr>
+                            <td height="24"><input name="checkGroup" type="checkbox" id="checkGroup" value="checkbox" <?php if (!empty($_SESSION['checkGroup'])) print "checked='true'"; ?>>
+                    Group</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><select name="selectGroup" id="selectGroup" onChange="form1.checkGroup.checked=true;">
+							<option<?php if (empty($_SESSION['selectGroup'])) print " selected ";?>>any</option>
+							<?php
+							include('config/config.php');
+								$link = mysql_pconnect($config_server, $config_user, $config_pass);
+								if (!$link) {
+							   		print mysql_error();
+								} else {
+									mysql_select_db("digitallibrary");
+									$resultX = mysql_query("select DISTINCT studygroup from documents order by studygroup DESC");
+									
+									for ($i2=0; $i2<mysql_num_rows($resultX)-1; $i2++) {
+										print "<option";
+										if ($_SESSION['selectGroup'] == mysql_result($resultX,$i2,"studygroup"))
+											print " selected ";
+										print ">".mysql_result($resultX,$i2,"studygroup")."</option>\n";
+									}
+								}
+							?>
+							</select></td>
+                            <td>&nbsp;</td>
+                            <td> Starts with </td>
+
+                            <td><input name="textStartsGroup" type="text" id="textStartsRelated" value="<?php print $_SESSION['textStartsGroup']?>" onChange="form1.checkGroup.checked=true;"></td>
+                            <td>&nbsp;</td>
+                            <td> Ends with </td>
+                            <td><input name="textEndsGroup" type="text" name="textfield" value="<?php print $_SESSION['textEndsGroup']?>" onChange="form1.checkGroup.checked=true;"></td>
+
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td height="38"><input name="checkKeywords" type="checkbox" id="checkKeywords" value="checkbox" <?php if (!empty($_SESSION['checkKeywords'])) print "checked='true'"; ?>>
+                    Keywords</td>
+                            <td>&nbsp;</td>
+                            <td> Contains </td>
+
+                            <td><input name="textContainsKeywords" type="text" id="textContainsKeywords" value="<?php print $_SESSION['textContainsKeywords']?>" onChange="form1.checkKeywords.checked=true;"></td>
+                            <td>&nbsp;</td>
+                            <td> not Contain </td>
+                            <td><input name="textNotKeywords" type="text" id="textNotKeywords" value="<?php print $_SESSION['textNotKeywords']?>" onChange="form1.checkKeywords.checked=true;"></td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+
+                          <tr>
+                            <td height="24"><input name="checkClassification" type="checkbox" id="checkClassification" value="checkbox" <?php if (!empty($_SESSION['checkClassification'])) print "checked='true'"; ?>>
+                    Classification</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><select name="selectClassification" id="selectClassification" onChange="form1.checkClassification.checked=true;">
+                            <option <?php if (empty($_SESSION['selectClassification']))                print 'selected'; ?>>General</option>
+                            <option <?php if ($_SESSION['selectClassification'] == 'Thesis')           print 'selected'; ?>>Thesis</option>
+                            <option <?php if ($_SESSION['selectClassification'] == 'Journal')          print 'selected'; ?>>Journal</option>
+                            <option <?php if ($_SESSION['selectClassification'] == 'Technical Report') print 'selected'; ?>>Technical Report</option>
+                            <option <?php if ($_SESSION['selectClassification'] == 'Book')             print 'selected'; ?>>Book</option>
+                            <option <?php if ($_SESSION['selectClassification'] == 'Book Chapter')     print 'selected'; ?>>Book Chapter</option>
+                            <option <?php if ($_SESSION['selectClassification'] == 'Documentation')    print 'selected'; ?>>Documentation</option>
+                          </select>
+                            </select></td>
+                            <td>&nbsp;</td>
+
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                          </tr>
+                              </table>
+                  </div>
+                  <p align="center"> <br>
+
+                    <br>
+                    <input name="initial" type="hidden" value="false">
+                    <input type="submit" name="Submit" value="Submit search request">
+                  </p>
+                </form>
+                <p align="center">          
+              <hr align="center"></td>
+              <?php
+              if (empty($_REQUEST['initial'])) {
+              	?>
+            </tr>
+            </table>
+          </div>      
+          <p align="center">&nbsp;</p>
+
+    </td></tr>
+</table>
+<?php } ?>

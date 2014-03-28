@@ -1,0 +1,148 @@
+      <table width="530"  border="0" align="center" cellpadding="10" cellspacing="0">
+        <tr>
+          <td>User
+            <table width="100%"  border="1" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="36%" height="93"><form name="form1" method="post" action="admin.php">
+				<input type="hidden" name="auth" value="">
+                <select name="username" size="3" onclick="document.form1.auth.value='no'; document.forms.form1.submit()">
+                <?php
+                	// Select current users for the user box
+                	// Run the query
+					$link = mysql_pconnect($config_server, $config_user, $config_pass);
+					if (!$link) {
+   						print mysql_error();
+					} else {
+						$SqlQuery="select username,fullname from admin";
+						mysql_select_db("digitallibrary");
+						$result = mysql_query($SqlQuery);
+						//print $SqlQuery;
+						$num=mysql_num_rows($result);
+				
+						for ($i=0; $i<$num; $i++) {
+							print "<option "; 
+							if(mysql_result($result,$i,"username") == $VAR->get('username')){print "selected";}
+							print " >".mysql_result($result,$i,"username")."</option>\n";
+						}
+					}
+                ?>
+              </select>
+              </td>
+              <td width="64%"><p>
+              <input name="userAction" type="radio" value="userAdd">Add user<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Username :<input type="text" name="addUserText"  onChange="document.form1.userAction[0].checked=true;"><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Full Name:<input type="text" name="nameUserText" onChange="document.form1.userAction[0].checked=true;"><br>
+              <input name="userAction" type="radio" value="userDelete">Delete user<br>
+              </p>
+                </td>
+            </tr>
+            <tr>
+
+              <td><p>User: <?php
+              				 if ($_REQUEST['username'] == "") {
+              				 	$SqlQuery = "select * from admin limit 1";
+              				 } else {
+              				 	$SqlQuery = "select * from admin where username='".$VAR->get('username')."'";
+								$result = mysql_query($SqlQuery);
+								$row = mysql_fetch_object($result);
+              				 }
+             				 print $row->fullname;
+              				 ?>
+              				  <br>
+                Permissions:</p>
+                <p>&nbsp;</p></td>
+              <td><p>
+              <input name="userAction" type="radio" value="userMod"> Modify permissions<br>
+                <input name="access" onClick="document.form1.userAction[2].checked=true;" type="checkbox" value="1" <?php if($row->access == 1) print "checked "; ?>>
+                Access<br>
+                <input name="upload" onChange="document.form1.userAction[2].checked=true;" type="checkbox" value="1" <?php if($row->upload == 1) print "checked"; ?>>
+				Upload documents<br>
+				<input name="admin"  onChange="document.form1.userAction[2].checked=true;" type="checkbox" value="1" <?php if($row->admin == 1)  print "checked"; ?>> 
+                 Full administrative control         
+                    </p>
+                </td>
+            </tr>
+          </table>
+            <div align="right"><br>
+
+          </div></td>
+
+        </tr>
+      </table>      
+      <table width="530"  border="0" align="center" cellpadding="10" cellspacing="0">
+        <tr>
+          <td height="254">Groups
+            <table width="100%"  border="1" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="36%" height="118">
+                      Groups:<br>
+                      <select name="groups" size="3" onclick="document.form1.auth.value='no'; document.forms.form1.submit()">
+                <?php
+                	// Select current Groups for the group box
+                	// Run the query
+					//$link = mysql_pconnect("127.0.0.1:3306", "root", "deicide");
+					//if (!$link) {
+   					//	print mysql_error();
+					//} else {
+						$SqlQuery="select groupname from groups";
+						mysql_select_db("digitallibrary");
+						$result = mysql_query($SqlQuery);
+						//print $SqlQuery;
+						$num=mysql_num_rows($result);
+				
+						for ($i=0; $i<$num; $i++) {
+							print "<option "; 
+							if(mysql_result($result,$i,"groupname") == $VAR->get('groups')){print "selected";}
+							print " >".mysql_result($result,$i,"groupname")."</option>\n";
+						}
+				//	}
+                ?>
+                    </select>
+                  </p>
+                  </td>
+                  <td width="64%"><p>
+
+                    <input name="groupAction" type="radio" value="createGroup">
+                    Create Group <input type="text" name="createGroupText"> <br>
+                    <input name="groupAction" type="radio" value="deleteGroup">
+                    Delete Group <br>
+                    <input name="groupAction" type="radio" value="AddUserToGroup">
+                    Add user to Group <br>
+                    <input name="groupAction" type="radio" value="RemoveUserFromGroup">
+                    Remove user from Group </p></td>
+                </tr>
+                <tr>
+                  <td height="76"><p>Group Members </p>
+                  <p>&nbsp;</p></td>
+                  <td><p>
+                  <p>                 
+                    <select name="groupMembers" size="3">
+                    <?php
+                    	$SqlQuery="select members from groups where groupname='".$VAR->get('groups')."'";
+						$result = mysql_query($SqlQuery);
+						//print $SqlQuery;
+						$row = mysql_fetch_object($result);
+						
+						$membersArray = split(":",$row->members);
+
+						foreach ($membersArray as $inside) {
+							print "<option "; 
+							if($inside == $VAR->get('groupMembers')){print "selected";}
+							print " >".$inside."</option>\n";
+						}
+						?>
+                    </select>
+
+ </p></td>
+                </tr>
+            </table>
+            <p align="right">
+              <input name="initial" type="hidden" value="false">
+              <input type="submit" name="Submit" value="Submit">
+              </form>
+          </p></td>
+        </tr>
+      </table>
+      <p>&nbsp;</p></td>
+  </tr>
+</table>
